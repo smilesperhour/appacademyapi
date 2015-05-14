@@ -28,30 +28,41 @@ function connectToInstagram($url){
 	return $result;
 }
 //function to get userid for pics
-function getUserID($username){
+function getUserID($userName){
 	$url = 'http://api.instagram.com/v1/users/search?q=' .$userName . '&client_id='.clientID;
 	$instagramInfo = connectToInstagram($url);
 	$results = json_decode($instagramInfo, true);
 
-	echo $results['data']['0']['id'];
+	return $results['data']['0']['id'];
 }
 
-fuction printImages($userName){
+function printImages($userID){
 	$url = 'http://api.instagram.com/v1/users/'.$userID.'/media/recent?client_id='.clientID.'&count=5';
 	$instagramInfo = connectToInstagram($url);
 	$results = json_decode($instagramInfo, true);
-	foreach($results['data'] as $items){
+	foreach ($results['data'] as $items){
 		$image_url = $items['images']['low_resolution']['url'];
-		echo '<img src="'.$image_url.' "/><br>';
+		echo '<img src=" '.$image_url.' "/><br/>';
+
+		savePictures($image_url);
 	}
 }
+	function savePictures($image_url){
+		echo $image_url . '<br>';
+		$filename = basename($image_url);
+		echo $filename . '<br>';
+
+		$destination = ImageDirectory . $filename;
+		file_put_contents($destination, file_get_contents($image_url));
+	}
+
 
 if (isset($_GET['code'])){
 	$code = (($_GET['code']));
 	$url = 'https://api.instagram.com/oauth/access_token';
 	$access_token_settings = array('client_id' => clientID,
 								   'client_secret' => clientSecret,
-								   'grant_type' => authorization_code,
+								   'grant_type' => 'authorization_code',
 								   'redirect_uri' => redirectURI,
 								   'code' => $code
 								   );
