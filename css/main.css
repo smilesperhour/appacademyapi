@@ -1,0 +1,30 @@
+body{
+   background-image:url(../css/insta.png);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+div{
+  height: 50px;
+  width: 400px;
+  border: 2px solid lightgrey;
+  margin-top: 20px;
+  background: lightblue;
+  color: #FFFFFF;
+  opacity: 0.7;
+  font-size: 30px;
+  text-align: center;
+margin-left: 450px;
+border-radius: 25px;
+  color: white;
+
+}
+
+a{
+	 text-decoration: none;
+	 color: black;
+	 font-family: 'Cedarville Cursive', cursive;
+
+}
