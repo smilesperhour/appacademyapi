@@ -37,7 +37,7 @@ define('ImageDirectory', 'pics/');
 		foreach ($results['data'] as $items){
 			$image_url = $items['images']['low_resolution']['url'];//going to go through all of my results and give myself back the URL of those pictures because we want to save it in the PHP server.
 			// echo '<img src=" '.$image_url.'"/><br/>';
-			 require_once(__DIR__ . "/view/pic.php");
+			 echo '<img src=" '.$image_url.'"/><br/>';
 			//calling a function to save that $image_url
 			savePictures($image_url);	
 		}
@@ -79,6 +79,7 @@ else{
 <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 <head>
 <link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/pic.css">
 <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Cedarville+Cursive' rel='stylesheet' type='text/css'>
 	<title></title>

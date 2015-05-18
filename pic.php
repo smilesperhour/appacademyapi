@@ -3,9 +3,9 @@
 <head>
 	<title></title>
 </head>
-<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/pic.css">
 <body>
-<div>
+<div class="pic">
 	<?php echo '<img src=" '.$image_url.'"/><br/>';?>
 </div>
 </body>
